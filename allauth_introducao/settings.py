@@ -176,3 +176,7 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = str(os.getenv('EMAIL_HOST_USER'))
 
 EMAIL_HOST_PASSWORD = str(os.getenv('EMAIL_HOST_PASSWORD'))
+
+ACCOUNT_FORMS = {
+    'signup': 'allauth_introducao.forms.CustomSignupForm',  # Substitua 'myapp' pelo nome do seu aplicativo
+}
