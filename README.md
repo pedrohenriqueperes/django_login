@@ -6,8 +6,8 @@ Este é um projeto Django que implementa um sistema de login usando `django-alla
 
 - Python 3.12
 - Django 5.0.6
-- `django-allauth`
-- `python-dotenv`
+- django-allauth
+- python-dotenv
 
 ## Instalação
 
@@ -16,43 +16,59 @@ Este é um projeto Django que implementa um sistema de login usando `django-alla
 ```bash
 git clone https://github.com/seu-usuario/django-allauth-login.git
 cd django-allauth-login
+```
 
+### 2. Criar e ativar o ambiente virtual
 
-2. Criar e ativar o ambiente virtual
-
+```bash
 python -m venv venv
 source venv/bin/activate  # No Windows, use `venv\Scripts\activate`
+```
 
-3. Instalar as dependências
+### 3. Instalar as dependências
+
+```bash
 pip install -r requirements.txt
+```
 
-4. Configurar as variáveis de ambiente
+### 4. Configurar as variáveis de ambiente
 
+Crie um arquivo `.env` na raiz do projeto e adicione as seguintes variáveis:
+
+```
 SECRET_KEY=yourprojectsecretkey
 EMAIL_HOST=smtp.gmail.com
 EMAIL_PORT=587
 EMAIL_USE_TLS=True
 EMAIL_HOST_USER=email
 EMAIL_HOST_PASSWORD=password
+```
 
-5. Migrar o banco de dados
+### 5. Migrar o banco de dados
 
+```bash
 python manage.py migrate
+```
 
-6. Criar um superusuário
+### 6. Criar um superusuário
 
+```bash
 python manage.py createsuperuser
+```
 
-7. Executar o servidor de desenvolvimento
+### 7. Executar o servidor de desenvolvimento
 
+```bash
 python manage.py runserver
+```
 
-Configuração do Projeto
+## Configuração do Projeto
 
-settings.py
+### `settings.py`
 
-Certifique-se de que as configurações no seu settings.py estejam corretas:
+Certifique-se de que as configurações no seu `settings.py` estejam corretas:
 
+```python
 import os
 from dotenv import load_dotenv
 
@@ -87,11 +103,13 @@ ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_UNIQUE_EMAIL = True
+```
 
+### `urls.py`
 
-urls.py
-Adicione as URLs do django-allauth ao seu urls.py:
+Adicione as URLs do `django-allauth` ao seu `urls.py`:
 
+```python
 from django.urls import path, include
 
 urlpatterns = [
@@ -99,12 +117,15 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     ...
 ]
+```
 
-Funcionalidades
-Registro de usuários com verificação de email
-Login e logout de usuários
-Redefinição de senha via email
-Edição do perfil do usuário
+## Funcionalidades
 
-Contribuição
+- Registro de usuários com verificação de email
+- Login e logout de usuários
+- Redefinição de senha via email
+- Edição do perfil do usuário
+
+## Contribuição
+
 Sinta-se à vontade para abrir issues e enviar pull requests. Toda contribuição é bem-vinda!
